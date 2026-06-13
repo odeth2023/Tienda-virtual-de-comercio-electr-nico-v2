@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VAULT — Mis Pedidos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/css/style.css">
+</head>
+<body class="bg-bg-app text-cream font-body antialiased">
+
+  <header></header>
+
+  <div class="max-w-4xl mx-auto px-6 md:px-10 py-10">
+    <div class="flex items-end justify-between border-b border-border-custom pb-6 mb-8 gap-4 flex-wrap">
+      <div>
+        <h1 class="font-display text-3xl md:text-4xl font-light text-cream">Mis <em class="italic text-gold">pedidos</em></h1>
+        <p class="text-xs text-muted-custom font-semibold tracking-wider uppercase mt-1" id="ordersCount">—</p>
+      </div>
+    </div>
+
+    <!-- Demo banner -->
+    <div class="bg-gold/5 border border-gold/20 rounded p-4 mb-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 text-xs" id="demoBanner">
+      <span class="text-cream font-medium"><strong>Demo:</strong> Cambia el estado de un pedido para ver el seguimiento en acción</span>
+      <div class="flex items-center gap-3 flex-wrap" id="demoControls"></div>
+    </div>
+
+    <!-- Status filter -->
+    <div class="flex gap-1 border-b border-border-custom pb-4 mb-6 flex-wrap" id="statusFilter">
+      <button class="status-tab text-xs font-bold tracking-wider text-gold py-1.5 px-3 border border-gold rounded cursor-pointer active" data-filter="all">Todos</button>
+      <button class="status-tab text-xs font-semibold tracking-wider text-muted-custom py-1.5 px-3 border border-transparent rounded hover:border-border-custom hover:text-cream transition-all duration-200 cursor-pointer" data-filter="created">Creados</button>
+      <button class="status-tab text-xs font-semibold tracking-wider text-muted-custom py-1.5 px-3 border border-transparent rounded hover:border-border-custom hover:text-cream transition-all duration-200 cursor-pointer" data-filter="shipped">En camino</button>
+      <button class="status-tab text-xs font-semibold tracking-wider text-muted-custom py-1.5 px-3 border border-transparent rounded hover:border-border-custom hover:text-cream transition-all duration-200 cursor-pointer" data-filter="delivered">Entregados</button>
+    </div>
+
+    <div id="ordersContainer"></div>
+  </div>
+
+  <script type="module" src="/src/js/vault-orders.js"></script>
+</body>
+</html>

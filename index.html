@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VAULT — Tienda</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/css/style.css">
+</head>
+<body class="bg-bg-app text-cream font-body antialiased">
+
+  <header></header>
+
+  <section class="px-6 md:px-10 py-16 md:py-20 flex flex-col md:flex-row items-start md:items-end justify-between border-b border-border-custom gap-8">
+    <div class="flex flex-col">
+      <h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-light leading-[1.05] tracking-tight text-cream">Colección<br /><em class="italic text-gold">exclusiva.</em></h1>
+      <p class="mt-4 text-xs font-semibold tracking-[0.18em] uppercase text-muted-custom">Selección global · Entrega rápida · Calidad garantizada</p>
+    </div>
+    <div class="md:text-right flex-shrink-0">
+      <p class="text-[10px] tracking-[0.12em] uppercase text-muted-custom mb-1.5">Productos disponibles</p>
+      <strong id="productCountHero" class="font-display text-2xl font-normal text-gold block">—</strong>
+    </div>
+  </section>
+
+  <div class="flex items-center justify-between px-6 md:px-10 py-4.5 border-b border-border-custom gap-4 flex-wrap">
+    <div class="flex flex-wrap gap-1" id="filterTabs">
+      <button class="filter-tab text-xs font-semibold tracking-widest uppercase text-gold py-1.5 px-3.5 border border-gold rounded cursor-pointer" data-cat="all">Todos</button>
+    </div>
+    <select class="bg-bg-card border border-border-custom rounded text-muted-custom text-xs font-medium tracking-wide py-1.5 px-3 cursor-pointer outline-none focus:border-gold-dim focus:text-cream transition-colors duration-200" id="sortSelect">
+      <option value="default">Ordenar</option>
+      <option value="price-asc">Precio: menor a mayor</option>
+      <option value="price-desc">Precio: mayor a menor</option>
+      <option value="rating">Mejor valorados</option>
+    </select>
+  </div>
+
+  <main class="flex min-h-[calc(100vh-64px)]">
+    <section class="flex-1 px-6 md:px-10 py-8">
+      <p class="text-[10px] tracking-wider uppercase text-muted-custom mb-6" id="productsCount">Cargando productos…</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5" id="productsGrid">
+        <!-- Skeletons -->
+        <div class="bg-bg-card border border-border-custom rounded-md overflow-hidden animate-pulse">
+          <div class="aspect-square bg-neutral-800 animate-shimmer"></div>
+          <div class="h-2.5 bg-neutral-800 rounded mx-4 my-4 w-3/4"></div>
+          <div class="h-2.5 bg-neutral-800 rounded mx-4 mb-4 w-1/2"></div>
+        </div>
+        <div class="bg-bg-card border border-border-custom rounded-md overflow-hidden animate-pulse">
+          <div class="aspect-square bg-neutral-800 animate-shimmer"></div>
+          <div class="h-2.5 bg-neutral-800 rounded mx-4 my-4 w-3/4"></div>
+          <div class="h-2.5 bg-neutral-800 rounded mx-4 mb-4 w-1/2"></div>
+        </div>
+        <div class="bg-bg-card border border-border-custom rounded-md overflow-hidden animate-pulse">
+          <div class="aspect-square bg-neutral-800 animate-shimmer"></div>
+          <div class="h-2.5 bg-neutral-800 rounded mx-4 my-4 w-3/4"></div>
+          <div class="h-2.5 bg-neutral-800 rounded mx-4 mb-4 w-1/2"></div>
+        </div>
+        <div class="bg-bg-card border border-border-custom rounded-md overflow-hidden animate-pulse">
+          <div class="aspect-square bg-neutral-800 animate-shimmer"></div>
+          <div class="h-2.5 bg-neutral-800 rounded mx-4 my-4 w-3/4"></div>
+          <div class="h-2.5 bg-neutral-800 rounded mx-4 mb-4 w-1/2"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-border-custom py-10 px-6 md:px-10 flex flex-col md:flex-row items-center justify-between gap-4">
+    <div class="font-display text-xl font-semibold tracking-[0.25em] text-cream">V<span>A</span>ULT</div>
+    <p class="text-xs text-muted-custom">© 2025 VAULT Store · Proyecto de portafolio</p>
+  </footer>
+
+  <script type="module" src="/src/js/vault-store.js"></script>
+</body>
+</html>

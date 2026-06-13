@@ -1,0 +1,123 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg-app: #0a0a0a;
+  --color-bg-card: #141414;
+  --color-bg-cart: #111111;
+  --color-cream: #f5f0e8;
+  --color-gold: #c9a84c;
+  --color-gold-dim: #9b7e38;
+  --color-border-custom: #2a2a2a;
+  --color-muted-custom: #6b6b6b;
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-body: "Inter", system-ui, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-bg-app text-cream font-body antialiased;
+    font-size: 15px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* Webkit Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-bg-app;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-border-custom rounded-sm;
+  }
+}
+
+/* Animations and custom layout styling that's hard to do purely with standard Tailwind classes */
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, #1a1a1a 25%, #222 50%, #1a1a1a 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+}
+
+/* Processing Spinner/Ring */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+.animate-spin-custom {
+  animation: spin 1s linear infinite;
+}
+
+/* Checkmark Animation for Confirmation */
+@keyframes stroke {
+  100% { stroke-dashoffset: 0; }
+}
+@keyframes scale {
+  0%, 100% { transform: none; }
+  50% { transform: scale3d(1.1, 1.1, 1); }
+}
+@keyframes fill {
+  100% { box-shadow: inset 0px 0px 0px 30px #27ae60; }
+}
+
+.checkmark {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: block;
+  stroke-width: 2;
+  stroke: #27ae60;
+  stroke-miterlimit: 10;
+  box-shadow: inset 0px 0px 0px #27ae60;
+  animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s infinite alternate;
+}
+.checkmark-circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+  stroke: #27ae60;
+  fill: none;
+  animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+.checkmark-check {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+
+/* Processing step states */
+.proc-step.active {
+  @apply text-gold font-semibold;
+}
+.proc-step.active .dot {
+  @apply bg-gold shadow-[0_0_8px_rgba(201,168,76,0.5)];
+}
+.proc-step.done {
+  @apply text-green-500;
+}
+.proc-step.done .dot {
+  @apply bg-green-500;
+}
+

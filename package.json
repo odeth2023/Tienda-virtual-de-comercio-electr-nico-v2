@@ -1,0 +1,19 @@
+{
+  "name": "tienda-virtual-de-comercio-electr-nico-v2",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.1",
+    "tailwindcss": "^4.3.1",
+    "vite": "^8.0.12"
+  },
+  "dependencies": {
+    "lucide": "^1.18.0"
+  }
+}
